@@ -49,7 +49,7 @@ export default function NavigationBar() {
             <li key={item.title}>
               <Link
                 href={item.href}
-                className="text-white font-medium hover:text-gray-300 transition"
+                className="text-white font-normal text-md md:text-sm lg:text-md hover:text-gray-300 transition"
               >
                 {item.title}
               </Link>
