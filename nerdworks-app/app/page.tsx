@@ -47,7 +47,7 @@ export default function Home() {
 
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/100 via-black/80 md:via-black/70 to-transparent" />
 
-        <div className="relative z-20 px-4 text-center max-w-2xl w-full pt-20 md:pt-50 mt-50">
+        <div className="relative z-20 px-6 md:px-5 text-center max-w-2xl w-full pt-20 md:pt-50 mt-50 ">
           <div className="inline-block bg-blue-800 text-sm font-medium rounded-full px-4 py-1 mb-4">
             Comic con 2025 is here,{" "}
             <Link href="/sign-up" className="underline">
@@ -86,10 +86,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative w-full px-6 py-20 bg-black text-white md:px-50 lg:px-70">
-        <div className="flex flex-row gap-4 justify-between items-center">
+      <section className="relative w-full pt-10 pb-10 bg-black text-white md:px-50 lg:px-80 px-8">
+        <div className="flex flex-row gap-4 md:gap-6 justify-between items-center">
           <div className="flex-1">
-            <h2 className="text-5xl font-black mb-4 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-black mb-4 leading-tight">
               PEOPLE <br /> PASSION <br /> COMMUNITY
             </h2>
             <p className="text-white mb-6 max-w-sm w-full">
@@ -128,13 +128,93 @@ export default function Home() {
                   <Image
                     src={src}
                     alt={`community-${idx}`}
-                    width={100}
-                    height={100}
+                    width={300}
+                    height={300}
                     className="object-cover w-full"
                   />
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+       {/* African Storytelling Section */}
+       <section
+        className="relative w-full py-20 before:absolute before:inset-0 before:bg-black/100 before:z-0"
+        style={{
+          backgroundImage: 'url(/images/comic-gallery-background.svg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="relative z-10 text-center max-w-4xl mx-auto -mb-20 px-6">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight text-left md:text-center ">
+            REDEFINING <br/> AFRICAN <br/> STORYTELLING
+          </h2>
+          <p className="text-gray-300 mb-6 text-left md:text-center">
+            Step into a universe of African comics like never before.
+          </p>
+          <div className="flex flex-row jsutify-start md:justify-center gap-4">
+            <Button className="bg-blue-600">Go to Nerdwork+</Button>
+            <Button variant="outline">Learn More</Button>
+          </div>
+        </div>
+
+        {/* Comic Covers Gallery */}
+        <div className="relative z-0 flex flex-col">
+          {[
+            "/images/comic-col-1.svg",
+            "/images/comic-col-2.svg",
+            "/images/comic-col-3.svg",
+          ].map((src, idx) => (
+            <div key={idx} className="flex flex-col w-full h-25 md:h-50 lg:h-80  shadow-md">
+              <Image
+                src={src}
+                alt={`comic-${idx}`}
+                width={240}
+                height={360}
+                className="object-cover w-full h-50 md:h-300"
+              />
+            </div>
+          ))}
+        </div>
+
+
+        {/* Feature Summary */}
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-1 gap-5 mt-12 text-left md:text-center px-8">
+        <div className="flex mx-auto max-w-3xl w-full justify-center items-center">
+          <h2 className="text-3xl md:text-5xl font-extrabold leading-tight text-left md:text-center">FROM CREATORS DEVOTED READERS.
+          <br className="md:hidden" /> THERE'S A STORY FOR EVERYONE
+          </h2>
+        </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mt-12 text-left md:text-start px-8 md:mx-20">
+          {[
+            {
+              title: "Discover African Stories",
+              desc: "Immerse yourself in authentic African narratives, from folklore to futuristic adventures."
+            },
+            {
+              title: "Better Reading Experience",
+              desc: "Seamless, immersive, and tailored for your comfort, enjoy comics like never before."
+            },
+            {
+              title: "Creator Management",
+              desc: "Empowering African creators with the tools to bring stories to life."
+            },
+            {
+              title: "African Focused Voice",
+              desc: "Bringing African culture, creativity, and perspective to the world."
+            }
+          ].map((feature, idx) => (
+            <div key={idx} className="flex md:flex-col space-x-4">
+              <h4 className="text-2xl font-bold">{idx + 1}</h4>
+                <div className="flex flex-col items-start justify-start gap-2">
+                <h5 className="font-semibold text-[18px]">{feature.title}</h5>
+                <p className="text-sm text-gray-400">{feature.desc}</p>
+                </div>
+            </div>
+          ))}
           </div>
         </div>
       </section>
