@@ -96,7 +96,7 @@ export default function Home() {
               No matter your passion, there's a community for you.
             </p>
             <div className="group relative">
-              <ul className="space-y-3 mb-4 font-medium text-md">
+              <ul className="space-y-3 mb-4 font-medium text-[18px] md:text-xl">
                 {topics.map((topic) => (
                   <li
                     key={topic}
@@ -106,7 +106,7 @@ export default function Home() {
                   >
                     {topic}
                     {hoveredTopic === topic && (
-                      <div className="absolute left-25 top-1/2 -translate-y-1/2 ml-4">
+                      <div className="absolute left-30 top-1/2 -translate-y-1/2 ml-4">
                         <Button size="sm">Join Community</Button>
                       </div>
                     )}
@@ -123,14 +123,14 @@ export default function Home() {
               return (
                 <div
                   key={idx}
-                  className={`overflow-hidden rounded-lg shadow-lg ${rotationClass}`}
+                  className={`object-cover overflow-hidden rounded-lg shadow-lg ${rotationClass}`}
                 >
                   <Image
                     src={src}
                     alt={`community-${idx}`}
-                    width={300}
-                    height={300}
-                    className="object-cover w-full h-full"
+                    width={100}
+                    height={100}
+                    className="object-cover w-full"
                   />
                 </div>
               );
