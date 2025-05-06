@@ -30,17 +30,14 @@ export default function Home() {
 
   return (
     <div className="flex flex-col w-full h-full mx-auto justify-center items-center">
-      {/* Navigation Bar */}
       <div className="fixed top-0 left-0 w-full z-20 bg-transparent">
         <NavigationBar />
       </div>
 
-      {/* Hero Section */}
       <section className="relative w-full h-screen flex items-center justify-center text-white">
-        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero.svg" // Replace with your actual image path
+            src="/images/hero.svg"
             alt="Nerdwork Hero"
             fill
             className="object-cover brightness-60"
@@ -48,10 +45,8 @@ export default function Home() {
           />
         </div>
 
-        {/* Shadow Behind Text */}
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/100 via-black/80 md:via-black/70 to-transparent" />
 
-        {/* Overlay Content */}
         <div className="relative z-20 px-4 text-center max-w-2xl w-full pt-20 md:pt-50 mt-50">
           <div className="inline-block bg-blue-800 text-sm font-medium rounded-full px-4 py-1 mb-4">
             Comic con 2025 is here,{" "}
@@ -69,7 +64,6 @@ export default function Home() {
             everything you love.
           </p>
 
-          {/* Email Signup */}
           <div className="flex flex-row items-center justify-center gap-2 mb-8">
             <Input
               type="email"
@@ -92,23 +86,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Community Section */}
-      <section className="relative w-full px-6 md:px-16 py-16 bg-black text-white md:px-20 lg:px-30">
-        <div className="flex flex-row gap-12 justify-between items-center">
-          {/* Left Side Text & List */}
+      <section className="relative w-full px-6 py-20 bg-black text-white md:px-50 lg:px-70">
+        <div className="flex flex-row gap-4 justify-between items-center">
           <div className="flex-1">
             <h2 className="text-5xl font-black mb-4 leading-tight">
               PEOPLE <br /> PASSION <br /> COMMUNITY
             </h2>
-            <p className="text-gray-400 mb-6 max-w-sm">
+            <p className="text-white mb-6 max-w-sm w-full">
               No matter your passion, there's a community for you.
             </p>
             <div className="group relative">
-              <ul className="space-y-3 mb-4 font-medium">
+              <ul className="space-y-3 mb-4 font-medium text-md">
                 {topics.map((topic) => (
                   <li
                     key={topic}
-                    className="text-gray-400 hover:text-white cursor-pointer relative"
+                    className="text-gray-400 hover:text-white cursor-pointer relative md:w-30"
                     onMouseEnter={() => setHoveredTopic(topic)}
                     onMouseLeave={() => setHoveredTopic(null)}
                   >
@@ -121,17 +113,13 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-                {/* {hoveredTopic === null && (
-                   <Button >Join Community</Button>
-                )} */}
             </div>
           </div>
 
-          {/* Right Side Images Grid */}
-          <div className="flex-1 grid grid-cols-2 gap-4 md:gap-6">
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-5">
             {communityImages.map((src, idx) => {
               const rotationClass =
-                idx % 2 === 0 ? "rotate-[2deg]" : "-rotate-[3deg]";
+                idx % 2 === 0 ? "rotate-[1deg]" : "-rotate-[2deg]";
               return (
                 <div
                   key={idx}
