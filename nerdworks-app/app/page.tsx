@@ -148,7 +148,7 @@ export default function Home() {
           backgroundPosition: 'center'
         }}
       >
-        <div className="relative z-10 text-center max-w-4xl mx-auto -mb-20 px-6">
+        <div className="relative z-10 text-center max-w-4xl mx-auto -mb-20 px-6 mt-5">
           <h2 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight text-left md:text-center ">
             REDEFINING <br/> AFRICAN <br/> STORYTELLING
           </h2>
@@ -168,13 +168,13 @@ export default function Home() {
             "/images/comic-col-2.svg",
             "/images/comic-col-3.svg",
           ].map((src, idx) => (
-            <div key={idx} className="flex flex-col w-full h-25 md:h-50 lg:h-80  shadow-md">
+            <div key={idx} className="flex flex-col w-full h-25 md:h-50 lg:h-[420px]">
               <Image
                 src={src}
                 alt={`comic-${idx}`}
                 width={240}
                 height={360}
-                className="object-cover w-full h-50 md:h-300"
+                className="object-cover w-full h-52 md:h-[600px] lg:h-[900px] "
               />
             </div>
           ))}
@@ -188,7 +188,7 @@ export default function Home() {
           <br className="md:hidden" /> THERE'S A STORY FOR EVERYONE
           </h2>
         </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mt-12 text-left md:text-start px-8 md:mx-20">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-12 mt-5 text-left md:text-start md:mx-30">
           {[
             {
               title: "Discover African Stories",
@@ -208,16 +208,94 @@ export default function Home() {
             }
           ].map((feature, idx) => (
             <div key={idx} className="flex md:flex-col space-x-4">
-              <h4 className="text-2xl font-bold">{idx + 1}</h4>
+              <h4 className="text-2xl md:text-4xl font-bold mb-2">{idx + 1}</h4>
                 <div className="flex flex-col items-start justify-start gap-2">
-                <h5 className="font-semibold text-[18px]">{feature.title}</h5>
-                <p className="text-sm text-gray-400">{feature.desc}</p>
+                <h5 className="font-semibold text-[18px] md:text-xl">{feature.title}</h5>
+                <p className="text-sm text-gray-400 md:text-[18px]">{feature.desc}</p>
                 </div>
             </div>
           ))}
           </div>
         </div>
       </section>
+
+      {/* comic con */}
+    <section className="relative w-full py-24 px-6 bg-black text-white">
+      <div className="flex flex-col lg:flex-row justify-between items-start gap-12 max-w-7xl mx-auto">
+        {/* Left Content */}
+        <div className="max-w-md">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">
+            EPIC COMIC-CONS <br />& IRL MEETUPS
+          </h2>
+          <p className="text-gray-400 mb-6">
+            Meet your favorite creators, cosplay icons, and fellow fans.
+          </p>
+          <div className="flex flex-col md:w-xs gap-4">
+            <Button className="bg-blue-600">Register for comic con 2025</Button>
+            <Button variant="outline">See last year's comic con</Button>
+          </div>
+        </div>
+
+        {/* Image Stack */}
+        <div className="relative w-full h-full md:h-[500px] flex-1 mb-50 md:mb-80">
+          <div className="absolute top-0 md:top-0 right-0 md:right-0 shadow-lg rounded overflow-hidden">
+            <Image src="/images/comic-con-1.jpg" alt="con-img-1" width={480} height={240} className="object-cover" />
+          </div>
+          <div className="absolute top-[20px] md:top-[140px] left-[20%] md:left-[10%] shadow-lg rounded overflow-hidden -rotate-[2deg]">
+            <Image src="/images/comic-con-2.jpg" alt="con-img-2" width={480} height={240}  className="object-cover" />
+          </div>
+          <div className="absolute top-0 md:top-[350px]  right-0 md:right-[10%] rounded overflow-hidden rotate-[5deg]">
+            <Image src="/images/comic-con-3.png" alt="con-img-3" width={480} height={240}  className="object-cover" />
+          </div>
+        </div>
+      </div>
+
+      {/* Stats */}
+      <div className=" md:absolute md:top-[24%] md:left-[14%] grid grid-cols-2 sm:grid-cols-1 gap-6 mt-20 max-w-4xl mx-auto text-center">
+        {[{
+          number: "5000",
+          label: "ATTENDEES",
+          sub: "in 3 years"
+        }, {
+          number: "300",
+          label: "MEMBERS",
+          sub: "Registered"
+        }, {
+          number: "20+",
+          label: "STALLS",
+          sub: "Booths and Activities"
+        }, {
+          number: "4Y",
+          label: "RUNNING",
+          sub: "Registered Members"
+        }].map((stat, idx) => (
+          <div key={idx} className="flex flex-col items-start ">
+            <h3 className="text-2xl md:text-3xl font-bold mb-1">{stat.number}</h3>
+            <p className="uppercase font-extrabold tracking-wide text-2xl md:text-4xl">{stat.label}</p>
+            <p className="text-sm text-gray-400 mt-1">{stat.sub}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Sponsors */}
+      <div className="mt-16 flex flex-col items-start mx-auto max-w-7xl">
+        <p className="text-sm text-gray-400 mb-6">Sponsors of comic con 2024</p>
+        <div className="grid grid-cols-3 space-y-8 md:space-y-10 md:grid-cols-5 justify-start items-start space-x-5 md:space-x-40 ">
+          {["carry1st-icon", "itel-icon", "filmhouse-icon", "tribe-icon", "monster-icon","carry1st-icon", "itel-icon", "filmhouse-icon", "tribe-icon", "monster-icon"]
+            .map((name, idx) => (
+              <div className="" key={idx}>
+                <Image
+                src={`/icons/${name}.svg`}
+                alt={name}
+                width={100}
+                height={50}
+                className="object-contain h-10"
+              />
+              </div>
+            ))}
+        </div>
+      </div>
+    </section>
     </div>
   );
 }
