@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const page = () => {
+export default function comicPage() {
   return (
     <div>page</div>
   )
