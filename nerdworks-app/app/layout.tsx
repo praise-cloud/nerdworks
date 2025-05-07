@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import oboStart from "next/font/local";
+import oboStar from "next/font/local";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
@@ -9,9 +9,9 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const obo = oboStart({
-  src: "../public/fonts/obostartest-regular.otf",
-  variable: "--font-obo",
+const obostar = oboStar({
+  src: "./fonts/obostartest-regular.otf",
+  variable: "--font-obostar",
   display: "swap",
 });
 
@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className={`${inter.variable} ${obostar.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

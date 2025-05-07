@@ -61,7 +61,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-4">
+          <h1 className="text-4xl md:text-5xl  font-extrabold tracking-tight leading-tight mb-4 font-obostar">
             WHERE PASSION <br className="hidden sm:inline" /> MEETS COMMUNITY
           </h1>
 
@@ -95,7 +95,7 @@ export default function Home() {
       <section className="relative w-full pt-10 pb-10 bg-black text-white md:px-50 xl:px-80 px-8">
         <div className="flex flex-row gap-4 md:gap-6 justify-between items-center">
           <div className="flex-1">
-            <h2 className="text-3xl md:text-5xl font-black mb-4 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-black mb-4 leading-tight font-obostar">
               PEOPLE <br /> PASSION <br /> COMMUNITY
             </h2>
             <p className="text-white mb-6 max-w-sm w-full">
@@ -155,7 +155,7 @@ export default function Home() {
         }}
       >
         <div className="relative z-10 text-center max-w-4xl mx-auto -mb-20 px-6 mt-5">
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight text-left md:text-center ">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight text-left md:text-center font-obostar">
             REDEFINING <br/> AFRICAN <br/> STORYTELLING
           </h2>
           <p className="text-gray-300 mb-6 text-left md:text-center">
@@ -190,11 +190,11 @@ export default function Home() {
         {/* Feature Summary */}
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-1 gap-5 mt-12 text-left md:text-center px-8">
         <div className="flex mx-auto max-w-3xl w-full justify-center items-center">
-          <h2 className="text-3xl md:text-5xl font-extrabold leading-tight text-left md:text-center">FROM CREATORS DEVOTED READERS.
+          <h2 className="text-xl md:text-2xl font-extrabold leading-normal text-left md:text-center font-obostar">FROM CREATORS DEVOTED READERS.
           <br className="md:hidden" /> THERE'S A STORY FOR EVERYONE
           </h2>
         </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-9 lg:gap-12 mt-5 text-left md:text-start md:mx-30 xl:mx-90">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-9 lg:gap-12 mt-5 text-left md:text-start md:mx-40 ">
           {[
             {
               title: "Discover African Stories",
@@ -214,9 +214,9 @@ export default function Home() {
             }
           ].map((feature, idx) => (
             <div key={idx} className="flex md:flex-col space-x-4">
-              <h4 className="text-2xl md:text-4xl font-bold mb-2">{idx + 1}</h4>
+              <h4 className="text-2xl md:text-4xl font-bold mb-2 font-obostar">{idx + 1}</h4>
                 <div className="flex flex-col items-start justify-start gap-2">
-                <h5 className="font-semibold text-[18px] md:text-xl">{feature.title}</h5>
+                <h5 className="font-semibold text-[12px] md:text-xs font-obostar">{feature.title}</h5>
                 <p className="text-sm text-gray-400 md:text-[18px]">{feature.desc}</p>
                 </div>
             </div>
@@ -227,11 +227,13 @@ export default function Home() {
 
       {/* comic con */}
     <section className="relative w-full py-24 px-6 bg-black text-white md:max-w-7xl">
-      <div className="flex flex-col lg:flex-row justify-between items-start gap-5 max-w-7xl mx-auto">
+      <div className="flex flex-col lg:flex-row justify-between items-start gap-10 max-w-7xl mx-auto">
         {/* Left Content */}
         <div className="max-w-md">
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight flex max-w-md">
-            EPIC COMIC CONS <br />& IRL MEETUPS
+        <h2 className="text-2xl md:text-3xl font-extrabold mb-4 leading-normal max-w-md font-obostar">
+            EPIC COMIC CONS
+            <br />
+            & IRL MEETUPS
           </h2>
           <p className="text-gray-400 mb-6">
             Meet your favorite creators, cosplay icons, and fellow fans.
@@ -276,8 +278,8 @@ export default function Home() {
           sub: "Registered Members"
         }].map((stat, idx) => (
           <div key={idx} className="flex flex-col items-start ">
-            <h3 className="text-2xl md:text-3xl font-bold mb-1">{stat.number}</h3>
-            <p className="uppercase font-extrabold tracking-wide text-2xl md:text-4xl">{stat.label}</p>
+            <h3 className="text-xs md:text-md font-bold mb-1 font-obostar">{stat.number}</h3>
+            <p className="uppercase font-extrabold tracking-wide text-md md:text-2xl font-obostar">{stat.label}</p>
             <p className="text-sm text-gray-400 mt-1">{stat.sub}</p>
           </div>
         ))}
@@ -318,7 +320,7 @@ export default function Home() {
       {/* Content */}
       <div className="relative flex flex-col items-center z-10 text-center max-w-3xl px-6 items-start justify-start md:items-center mx-auto">
 
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight text-left md:text-center">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight text-left md:text-center font-obostar">
           PASSION MEETS <br /> COMMUNITY
         </h2>
         <p className="flex text-gray-300 text-base md:text-lg md:max-w-[540px] mb-6 text-left md:text-center">
@@ -331,7 +333,7 @@ export default function Home() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto">
         {/* Left Section */}
         <div className="flex flex-col justify-start">
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight font-obostar">
             FREQUENTLY <br /> ASKED <br /> QUESTIONS
           </h2>
           <p className="text-gray-300 mb-6">
