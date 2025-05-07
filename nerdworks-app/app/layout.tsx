@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import oboStart from "next/font/local";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
@@ -8,6 +9,11 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const obo = oboStart({
+  src: "../public/fonts/obostartest-regular.otf",
+  variable: "--font-obo",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "NerdWorks",
