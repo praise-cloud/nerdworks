@@ -286,7 +286,7 @@ export default function Home() {
       {/* Sponsors */}
       <div className="mt-16 flex flex-col items-start mx-auto max-w-7xl">
         <p className="text-sm text-gray-400 mb-6">Sponsors of comic con 2024</p>
-        <div className="grid grid-cols-3 space-y-8 md:space-y-10 md:grid-cols-5 justify-start items-start space-x-5 md:space-x-40 ">
+        <div className="grid grid-cols-3 space-y-8 md:space-y-20 md:grid-cols-5 justify-start items-start space-x-5 md:space-x-40 ">
           {["carry1st-icon", "itel-icon", "filmhouse-icon", "tribe-icon", "monster-icon","carry1st-icon", "itel-icon", "filmhouse-icon", "tribe-icon", "monster-icon"]
             .map((name, idx) => (
               <div className="" key={idx}>
@@ -303,8 +303,7 @@ export default function Home() {
       </div>
     </section>
 
-    <section className="relative w-full h-screen text-white flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+    <section className="relative w-full h-screen text-white flex items-center justify-center overflow-hidden mt-10">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/nerd-community.svg"
@@ -313,18 +312,19 @@ export default function Home() {
           className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-3xl px-6">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+      <div className="relative flex flex-col items-center z-10 text-center max-w-3xl px-6 items-start justify-start md:items-center mx-auto">
+
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight text-left md:text-center">
           PASSION MEETS <br /> COMMUNITY
         </h2>
-        <p className="text-gray-300 text-base md:text-lg mb-6">
+        <p className="flex text-gray-300 text-base md:text-lg md:max-w-[540px] mb-6 text-left md:text-center">
           Where your passions bring people together. Our goal is to create the best ecosystem for storytellers, artists, and nerds in Africa.
         </p>
-        <Button className="bg-blue-600 text-white px-6 py-3">Our vision</Button>
+        <Button>Our vision</Button>
       </div>
     </section>
     <section className="relative w-full bg-black text-white px-6 py-20 md:px-16">
@@ -367,28 +367,16 @@ export default function Home() {
           </Accordion>
         </div>
       </div>
+    </section>
 
-      {/* Footer Area */}
-      <div className="mt-20 grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
-        {/* Image Bottom Left */}
-        <div className="relative w-full max-w-sm mx-auto lg:col-span-1">
-          <Image
-            src="/images/faq-character.png"
-            alt="Mascot character"
-            width={300}
-            height={400}
-            className="object-contain"
-          />
-        </div>
-
-        {/* Newsletter + Links */}
-        <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <Image
+    {/* Footer Area */}
+    <div className="mt-20 flex flex-col md:flex-row justify-center items-center w-full max-w-7xl mx-auto gap-5">
+        <div className="flex flex-col md:w-full mb-10 md:mb-0">
+        <Image
               src="/icons/logo-icon.svg"
               alt="Nerdwork logo"
-              width={30}
-              height={30}
+              width={150}
+              height={150}
               className="mb-3"
             />
             <p className="mb-3">Join to stay up to date</p>
@@ -396,34 +384,75 @@ export default function Home() {
               <Input placeholder="Email address" className="bg-gray-900" />
               <Button>Sign Up</Button>
             </div>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-3">Quick Links</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li>Home</li>
-              <li>Nerdwork+</li>
-              <li>Events</li>
-              <li>Company</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-3">Company</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li>Careers</li>
-              <li>Press</li>
-              <li>Blog</li>
-            </ul>
-            <h4 className="font-semibold mt-6 mb-3">Support</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li>Contact Us</li>
-              <li>cookie policy</li>
-              <li>Privacy Policy</li>
-              <li>Terms of Service</li>
-            </ul>
-          </div>
         </div>
+
+      <div className="flex hidden md:flex ">
+      <Image
+            src="/images/footer-image.svg"
+            alt="Mascot character"
+            width={900}
+            height={600}
+            className="object-contain"
+          />
       </div>
-    </section>
+
+      <div className="flex gap-10">
+          <div className="flex flex-col w-full">
+                <p className="font-semibold mb-3 flex w-full w-20 md:w-25">Qiuck Links</p>
+                <ul className="space-y-2 text-sm text-gray-400">
+                  <li>Home</li>
+                  <li>Nerdwork+</li>
+                  <li>Events</li>
+                  <li>Company</li>
+                </ul>
+              </div>
+          <div className="flex flex-col w-full">
+                <h4 className="font-semibold mb-3 flex">Company</h4>
+                <ul className="space-y-2 text-sm text-gray-400">
+                  <li>About</li>
+                  <li>Careers</li>
+                  <li>Press</li>
+                  <li>Blog</li>
+                </ul>
+              </div>
+          <div className="flex flex-col w-full">
+                <h4 className="font-semibold mb-3 flex">Support</h4>
+                <ul className="space-y-2 text-sm text-gray-400">
+                  <li>Contact Us</li>
+                  <li>Help Center</li>
+                  <li>Privacy Policy</li>
+                  <li>Terms of Services</li>
+                </ul>
+          </div>
+      </div>
+
+            <div className="flex md:hidden justify-center items-center w-full mx-auto gap-39 my-15">
+                <h4 className="font-semibold">NERDWORK</h4>
+                <div className="flex gap-3">
+                  <Image
+                    src="/icons/facebook-icon.svg"
+                    alt="facebook logo"
+                    width={24}
+                    height={24}
+                    className=" rounded-lg"
+                  />
+                  <Image
+                    src="/icons/instagram-icon.svg"
+                    alt="facebook logo"
+                    width={24}
+                    height={24}
+                    className="rounded-lg"
+                  />
+                  <Image
+                    src="/icons/x-icon.svg"
+                    alt="facebook logo"
+                    width={24}
+                    height={24}
+                    className=" rounded-lg"
+                  />
+                </div>
+            </div>
+      </div>
     </div>
   );
 }
