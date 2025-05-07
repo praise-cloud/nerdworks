@@ -6,6 +6,12 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 const communityImages = [
   "/images/community-1.svg",
@@ -86,7 +92,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative w-full pt-10 pb-10 bg-black text-white md:px-50 lg:px-80 px-8">
+      <section className="relative w-full pt-10 pb-10 bg-black text-white md:px-50 xl:px-80 px-8">
         <div className="flex flex-row gap-4 md:gap-6 justify-between items-center">
           <div className="flex-1">
             <h2 className="text-3xl md:text-5xl font-black mb-4 leading-tight">
@@ -188,7 +194,7 @@ export default function Home() {
           <br className="md:hidden" /> THERE'S A STORY FOR EVERYONE
           </h2>
         </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-12 mt-5 text-left md:text-start md:mx-30">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-9 lg:gap-12 mt-5 text-left md:text-start md:mx-30 xl:mx-90">
           {[
             {
               title: "Discover African Stories",
@@ -220,12 +226,12 @@ export default function Home() {
       </section>
 
       {/* comic con */}
-    <section className="relative w-full py-24 px-6 bg-black text-white">
-      <div className="flex flex-col lg:flex-row justify-between items-start gap-12 max-w-7xl mx-auto">
+    <section className="relative w-full py-24 px-6 bg-black text-white md:max-w-7xl">
+      <div className="flex flex-col lg:flex-row justify-between items-start gap-5 max-w-7xl mx-auto">
         {/* Left Content */}
         <div className="max-w-md">
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">
-            EPIC COMIC-CONS <br />& IRL MEETUPS
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight flex max-w-md">
+            EPIC COMIC CONS <br />& IRL MEETUPS
           </h2>
           <p className="text-gray-400 mb-6">
             Meet your favorite creators, cosplay icons, and fellow fans.
@@ -251,7 +257,7 @@ export default function Home() {
       </div>
 
       {/* Stats */}
-      <div className=" md:absolute md:top-[24%] md:left-[14%] grid grid-cols-2 sm:grid-cols-1 gap-6 mt-20 max-w-4xl mx-auto text-center">
+      <div className="md:absolute md:top-[24%] md:left-[2%] grid grid-cols-2 md:grid-cols-1 gap-6 mt-20 max-w-7xl mx-auto text-center">
         {[{
           number: "5000",
           label: "ATTENDEES",
@@ -293,6 +299,128 @@ export default function Home() {
               />
               </div>
             ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="relative w-full h-screen text-white flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/nerd-community.svg"
+          alt="Crowd celebrating"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/20" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 text-center max-w-3xl px-6">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+          PASSION MEETS <br /> COMMUNITY
+        </h2>
+        <p className="text-gray-300 text-base md:text-lg mb-6">
+          Where your passions bring people together. Our goal is to create the best ecosystem for storytellers, artists, and nerds in Africa.
+        </p>
+        <Button className="bg-blue-600 text-white px-6 py-3">Our vision</Button>
+      </div>
+    </section>
+    <section className="relative w-full bg-black text-white px-6 py-20 md:px-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto">
+        {/* Left Section */}
+        <div className="flex flex-col justify-start">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
+            FREQUENTLY <br /> ASKED <br /> QUESTIONS
+          </h2>
+          <p className="text-gray-300 mb-6">
+            What fans everywhere have been asking. <br /> Can’t find the answer? Ask us directly!
+          </p>
+          <Button variant="outline" className="w-fit">Contact Support</Button>
+        </div>
+
+        {/* Right Section */}
+        <div>
+          <Accordion type="single" collapsible className="space-y-4">
+            <AccordionItem value="q1">
+              <AccordionTrigger>What is Nerdwork all about?</AccordionTrigger>
+              <AccordionContent>
+                Nerdwork is a community of creatives, enthusiasts and fun loving people who are looking to celebrate art, pop culture, and entertainment. The comic convention will feature panels, exhibits, cosplay, games, and guest appearances from creators and celebrities.
+              </AccordionContent>
+            </AccordionItem>
+            {["Do I need to be a weeb/nerd to attend a comic con?",
+              "Do I have to wear a costume?",
+              "Can I buy tickets at the door",
+              "What activities can I expect at a comic con?",
+              "Are there age restrictions for attendees?",
+              "Can I meet my favorite creators or celebrities?",
+              "Will there be merchandise available for purchase?",
+              "Are pets allowed at the event?",
+              "What are the health and safety guidelines for attendees?"]
+            .map((question, idx) => (
+              <AccordionItem key={idx} value={`q${idx + 2}`}>
+                <AccordionTrigger>{question}</AccordionTrigger>
+                <AccordionContent>Details coming soon.</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </div>
+
+      {/* Footer Area */}
+      <div className="mt-20 grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+        {/* Image Bottom Left */}
+        <div className="relative w-full max-w-sm mx-auto lg:col-span-1">
+          <Image
+            src="/images/faq-character.png"
+            alt="Mascot character"
+            width={300}
+            height={400}
+            className="object-contain"
+          />
+        </div>
+
+        {/* Newsletter + Links */}
+        <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <Image
+              src="/icons/logo-icon.svg"
+              alt="Nerdwork logo"
+              width={30}
+              height={30}
+              className="mb-3"
+            />
+            <p className="mb-3">Join to stay up to date</p>
+            <div className="flex gap-2">
+              <Input placeholder="Email address" className="bg-gray-900" />
+              <Button>Sign Up</Button>
+            </div>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-3">Quick Links</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>Home</li>
+              <li>Nerdwork+</li>
+              <li>Events</li>
+              <li>Company</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-3">Company</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>Careers</li>
+              <li>Press</li>
+              <li>Blog</li>
+            </ul>
+            <h4 className="font-semibold mt-6 mb-3">Support</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>Contact Us</li>
+              <li>cookie policy</li>
+              <li>Privacy Policy</li>
+              <li>Terms of Service</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
