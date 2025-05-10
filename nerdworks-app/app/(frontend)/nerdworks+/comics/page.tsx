@@ -2,52 +2,8 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { comics } from '@/lib/comicData';
+import { chapters } from '@/lib/chapterData';
 import { notFound } from 'next/navigation';
-
-// Mock chapter data (replace with API data in production)
-const chapters = [
-  {
-    number: 1,
-    title: "Chapter 1: Blessed",
-    description:
-      "A techno-industrial dystopia, the sprawling megalopolis of Durban stretches across the country's east coast, breeding ground for a cosmopolitan.",
-    date: "April 24, 2025",
-    status: "Completed",
-    action: "Read",
-  },
-  {
-    number: 2,
-    title: "Chapter 2: Renewal",
-    description:
-      "In a world dominated by technology and industry, the vast city of New Haven sprawls along the western shores, giving rise to a chaotic blend of innovation and despair.",
-    date: "April 17, 2025",
-    status: "70% Complete",
-    action: "Continue Reading",
-  },
-  {
-    number: 3,
-    title: "Past Lives",
-    date: "April 17, 2025",
-    status: "70% Complete",
-    action: "Unlock 0.01 SOL",
-  },
-  {
-    number: 4,
-    title: "Netherworld",
-    date: "April 17, 2025",
-    status: "70% Complete",
-    action: "Unlock 0.01 SOL",
-  },
-  {
-    number: 5,
-    title: "Chapter 3: Past Lives",
-    description:
-      "In a world dominated by technology and industry, the vast city of New Haven sprawls along the western shores, giving rise to a chaotic blend of innovation and despair.",
-    date: "April 17, 2025",
-    status: "70% Complete",
-    action: "Unlock 0.01 SOL",
-  },
-];
 
 export default function ComicDetailPage({ params }: { params: { id: string } }) {
   const comic = comics.find((c) => c.id === parseInt(params.id));
@@ -132,11 +88,9 @@ export default function ComicDetailPage({ params }: { params: { id: string } }) 
           ))}
         </TabsContent>
         <TabsContent value="comments">
-          {/* Placeholder for comments tab */}
           <p>Comments section coming soon.</p>
         </TabsContent>
         <TabsContent value="store">
-          {/* Placeholder for store tab */}
           <p>Store section coming soon.</p>
         </TabsContent>
       </Tabs>
