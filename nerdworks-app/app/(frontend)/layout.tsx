@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 const obo = oboStart({
-  src: "../public/fonts/obostartest-regular.otf",
+  src: "../../public/fonts/obostartest-regular.otf",
   variable: "--font-obo",
   display: "swap",
 });

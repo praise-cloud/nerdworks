@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 
 const navigationItems = [
   { title: "Communities", href: "/" },
-  { title: "Nerdworks+", href: "/nerdworks" },
+  { title: "Nerdworks+", href: "/nerdworks+" },
   { title: "Comic Con 2025 Soon", href: "/events/comic-con" },
   { title: "Events", href: "/events" },
   { title: "Company", href: "/company" },
