@@ -1,11 +1,5 @@
 import GenreTabs from "@/components/common/nerdworksplus/genreTabs";
 import Navbar from "@/components/common/nerdworksplus/navigationBar";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "nerdwork+",
-   description: 'The Netflix for comics – Read. Enjoy. Nerd Out.',
-};
 
 export default function RootLayout({
   children,
@@ -13,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body>
         <div className="flex flex-col">
           <Navbar/>
