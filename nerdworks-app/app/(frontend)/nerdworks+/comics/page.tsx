@@ -1,13 +1,17 @@
+'use client';
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { comics } from '@/lib/comicData';
 import { chapters } from '@/lib/chapterData';
 import { notFound } from 'next/navigation';
+import { useState } from 'react';
 
 export default function ComicDetailPage({ params }: { params: { id: string } }) {
   const comic = comics.find((c) => c.id === parseInt(params.id));
   if (!comic) return notFound();
+
+  const [activeTab, setActiveTab] = useState<'chapters' | 'comments' | 'store'>('chapters');
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -52,48 +56,73 @@ export default function ComicDetailPage({ params }: { params: { id: string } }) 
         </div>
       </div>
 
-      {/* Tabs */}
-      <Tabs defaultValue="chapters" className="px-6">
-        <TabsList className="bg-gray-800">
-          <TabsTrigger value="chapters">Chapters {comic.chapters}</TabsTrigger>
-          <TabsTrigger value="comments">Comments</TabsTrigger>
-          <TabsTrigger value="store">Store</TabsTrigger>
-        </TabsList>
-        <TabsContent value="chapters" className="mt-4">
-          {chapters.map((chapter) => (
-            <div
-              key={chapter.number}
-              className="flex justify-between items-center py-4 border-b border-gray-700"
-            >
-              <div>
-                <h3 className="text-sm font-semibold">
-                  #{chapter.number} {chapter.title}
-                </h3>
-                {chapter.description && (
-                  <p className="text-xs text-gray-400 mt-1">{chapter.description}</p>
-                )}
-                <p className="text-xs text-gray-400 mt-1">{chapter.status}</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <p className="text-xs text-gray-400">{chapter.date}</p>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-gray-600 text-gray-300 hover:bg-gray-700"
+      {/* Tab Navigation */}
+      <div className="px-6">
+        <div className="flex space-x-4 bg-gray-800 p-2 rounded-lg">
+          <button
+            onClick={() => setActiveTab('chapters')}
+            className={`px-4 py-2 rounded-md ${activeTab === 'chapters' ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700'}`}
+          >
+            Chapters {comic.chapters}
+          </button>
+          <button
+            onClick={() => setActiveTab('comments')}
+            className={`px-4 py-2 rounded-md ${activeTab === 'comments' ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700'}`}
+          >
+            Comments
+          </button>
+          <button
+            onClick={() => setActiveTab('store')}
+            className={`px-4 py-2 rounded-md ${activeTab === 'store' ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700'}`}
+          >
+            Store
+          </button>
+        </div>
+
+        {/* Tab Content */}
+        <div className="mt-4">
+          {activeTab === 'chapters' && (
+            <div>
+              {chapters.map((chapter) => (
+                <div
+                  key={chapter.number}
+                  className="flex justify-between items-center py-4 border-b border-gray-700"
                 >
-                  {chapter.action}
-                </Button>
-              </div>
+                  <div>
+                    <h3 className="text-sm font-semibold">
+                      #{chapter.number} {chapter.title}
+                    </h3>
+                    {chapter.description && (
+                      <p className="text-xs text-gray-400 mt-1">{chapter.description}</p>
+                    )}
+                    <p className="text-xs text-gray-400 mt-1">{chapter.status}</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <p className="text-xs text-gray-400">{chapter.date}</p>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="border-gray-600 text-gray-300 hover:bg-gray-700"
+                    >
+                      {chapter.action}
+                    </Button>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </TabsContent>
-        <TabsContent value="comments">
-          <p>Comments section coming soon.</p>
-        </TabsContent>
-        <TabsContent value="store">
-          <p>Store section coming soon.</p>
-        </TabsContent>
-      </Tabs>
+          )}
+          {activeTab === 'comments' && (
+            <div>
+              <p>Comments section coming soon.</p>
+            </div>
+          )}
+          {activeTab === 'store' && (
+            <div>
+              <p>Store section coming soon.</p>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
